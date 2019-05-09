@@ -11,13 +11,17 @@ class WxProvider extends React.Component {
   }
 
   componentDidMount = async () => {
-    const url = `api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=${wxKey}`;
+    const url = `http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=${wxKey}`;
     let wx = {};
     try {
-      wx = await fetch(url);
+      let response = await fetch(url);
+      let text = await response.text();
+      wx = JSON.parse(`${text}`);
       this.setState({ wx });
+      // console.log(JSON.parse(wx.body));
     } catch (e) {
       console.error("API FART!!!");
+      console.error(e);
     }
   };
 
