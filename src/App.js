@@ -1,7 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import WxProvider from "./WxProvider";
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     return (
       <div>
@@ -11,4 +16,9 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(
+  <WxProvider>
+    <App />
+  </WxProvider>,
+  document.getElementById("root")
+);
