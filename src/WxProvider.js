@@ -17,6 +17,7 @@ class WxProvider extends React.Component {
       let response = await fetch(url);
       let text = await response.text();
       wx = JSON.parse(`${text}`);
+      console.log(wx);
       this.setState({ wx });
       // console.log(JSON.parse(wx.body));
     } catch (e) {
