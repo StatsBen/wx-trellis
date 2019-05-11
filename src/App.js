@@ -1,7 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import WxTrellis from "./WxTrellis";
 import WxProvider from "./WxProvider";
-import { WxContext } from "./WxProvider";
+import SoundingProvider from "./SoundingProvider";
 
 class App extends React.Component {
   constructor(props) {
@@ -12,20 +13,18 @@ class App extends React.Component {
     // let { wx } = this.state;
     return (
       <div>
-        <h1>IT WORKS, MOTHERFUkER!!!</h1>
-        <WxContext.Consumer>
-          {wx => {
-            return <span>{JSON.stringify(wx)}</span>;
-          }}
-        </WxContext.Consumer>
+        <h1>IT 3ORkS</h1>
+        <WxTrellis />
       </div>
     );
   }
 }
 
 ReactDOM.render(
-  <WxProvider>
-    <App />
-  </WxProvider>,
+  <SoundingProvider>
+    <WxProvider>
+      <App />
+    </WxProvider>
+  </SoundingProvider>,
   document.getElementById("root")
 );

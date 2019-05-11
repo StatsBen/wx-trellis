@@ -11,7 +11,12 @@ class WxProvider extends React.Component {
   }
 
   componentDidMount = async () => {
-    const url = `http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=${wxKey}`;
+    // This is getting current Wx for London now - make it better...
+    // [lon-left,lat-bottom,lon-right,lat-top,zoom]
+    let lat = 51;
+    let lon = -118;
+    let cnt = 9;
+    const url = `http://api.openweathermap.org/data/2.5/find?lat=${lat}&lon=${lon}&cnt=${cnt}&APPID=${wxKey}`;
     let wx = {};
     try {
       let response = await fetch(url);
