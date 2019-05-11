@@ -7,11 +7,10 @@ class WxProvider extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { wx: {} };
+    this.state = { wx: [] };
   }
 
   componentDidMount = async () => {
-    // This is getting current Wx for London now - make it better...
     // [lon-left,lat-bottom,lon-right,lat-top,zoom]
     let lat = 51;
     let lon = -118;
@@ -22,9 +21,10 @@ class WxProvider extends React.Component {
       let response = await fetch(url);
       let text = await response.text();
       wx = JSON.parse(`${text}`);
+      if (wx.list) {
+        this.setState({ wx: wx.list });
+      }
       console.log(wx);
-      this.setState({ wx });
-      // console.log(JSON.parse(wx.body));
     } catch (e) {
       console.error("API FART!!!");
       console.error(e);
