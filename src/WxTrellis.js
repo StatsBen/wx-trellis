@@ -1,5 +1,6 @@
 import React from "react";
 import WxFacet from "./WxFacet";
+import TrellisControls from "./TrellisControls";
 import { WxContext } from "./WxProvider";
 import "./facets-styles.css";
 
@@ -12,6 +13,7 @@ class WxTrellis extends React.Component {
     return (
       <div>
         <h2>Faceted Wx</h2>
+        <TrellisControls />
         <div id="wx-trellis">
           <WxContext.Consumer>
             {wx =>
