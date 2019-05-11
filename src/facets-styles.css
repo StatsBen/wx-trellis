@@ -1,0 +1,11 @@
+#wx-trellis {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.wx-facet {
+  flex-grow: 1;
+  width: 30%;
+  margin: 3% 0 0 3%;
+  background: red;
+}
